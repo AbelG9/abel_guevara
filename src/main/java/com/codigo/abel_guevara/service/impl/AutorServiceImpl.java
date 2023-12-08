@@ -23,7 +23,7 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public AutorEntity leerAutorPorId(Long id) throws Exception {
         Optional<AutorEntity> autor = autorDAO.findById(id);
-        if (autor.isPresent() && autor.get().getId() == 1) {
+        if (autor.isPresent() && autor.get().getEstado() == 1) {
             return autor.get();
         } else {
             throw new Exception("Error, el autor solicitado no existe");
@@ -33,7 +33,7 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public AutorEntity actualizarAutor(Long id, AutorEntity autorEntity) throws Exception {
         Optional<AutorEntity> autor = autorDAO.findById(id);
-        if (autor.isPresent() && autor.get().getId() == 1) {
+        if (autor.isPresent() && autor.get().getEstado() == 1) {
             AutorEntity autorEdit = autor.get();
             autorEdit.setNombre(autorEntity.getNombre());
             return autorDAO.save(autorEdit);
@@ -45,7 +45,7 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public AutorEntity eliminarAutor(Long id) throws Exception {
         Optional<AutorEntity> autor = autorDAO.findById(id);
-        if (autor.isPresent() && autor.get().getId() == 1) {
+        if (autor.isPresent() && autor.get().getEstado() == 1) {
             AutorEntity autorEdit = autor.get();
             autorEdit.setEstado(0);
             return autorDAO.save(autorEdit);
