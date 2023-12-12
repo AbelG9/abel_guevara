@@ -1,6 +1,6 @@
 package com.codigo.abel_guevara.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
